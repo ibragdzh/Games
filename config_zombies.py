@@ -15,7 +15,7 @@ class Pet:
 
     def ability(self, owner, target):
         if self.name == "chicken":
-            a = randint(30, 75)
+            a = randint(30, 70)
             c = randint(1, 3)
             if c == 1:
                 owner.medical_box += 1
