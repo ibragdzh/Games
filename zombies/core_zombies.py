@@ -23,10 +23,13 @@
 import config_zombies
 import outputs_zombies
 import accounts_zombies
+# --- # --- # --- # --- # --- # --- # --- # --- # --- # --- # --- # --- # --- #
+import progressbar
 from random import randint
 from time import sleep
 
 def game(lang):
+    bar = progressbar.ProgressBar()
     if lang == "eng":
         player = config_zombies.Hero(input("My name is: "), 30, 350, 350, 0, 4, 0, 80, None)
     else:
@@ -44,11 +47,21 @@ def game(lang):
     else:
         print("Нажмите Enter для начала игры")
     input()
+    for i in range(100):
+        bar.update(i)
+        sleep(0.005)
+    bar.finish()
+    print("")
     zomboss.naming(lang)
     while True:
         outputs_zombies.pet_selection(lang)
         companion_selecting = input()
         companion = companion_selecting.lower()
+        for i in range(100):
+            bar.update(i)
+            sleep(0.005)
+        bar.finish()
+        print("")
         sleep(1)
         if lang == "eng":
             if companion == "chicken":
@@ -160,13 +173,13 @@ def game(lang):
             else:
                 print(player.name + ", ты слышал этот вопль?")
                 print("Ты получил", win_money, "$")
-            if mb_find <= 30:
+            if mb_find <= 10:
                 if lang == "eng":
                     print("Wow,", player.name, "find one medical box")
                 else:
                     print("Ого!", player.name, "нашел аптечку")
                 player.medical_box += 1
-            if simple_heal_chance <= 40:
+            if simple_heal_chance <= 15:
                 simple_heal = randint(1, 15)
                 player.hp += simple_heal
                 if player.hp > player.maxhp:

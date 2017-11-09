@@ -67,7 +67,7 @@ def hell_difficult(pl, zomb, comp, langu):
     pl.cash += 1500
     pl.damage += 80
     pl.maxhp += 80
-    comp.pet_ability += 20
+    comp.pet_ability += 10
     zomb.damage += 15
     zomb.dodge += 15
 
@@ -81,7 +81,7 @@ def twentyscore(pl, zomb, langu):
         print("Также вы получили две сабли!")
         print("Теперь зомби могут уворачиваться от твоих атак")
     pl.damage += 24
-    zomb.damage += 12
+    zomb.damage += 15
     pl.hp += 50
     zomb.dodge = 15
     if pl.hp > pl.maxhp:
@@ -93,11 +93,13 @@ def pet_selection(langu):
         print("Chicken: have a chance to give you some extra money and medical box")
         print("Dragon: have a chance to increase your damage and dodge chance, but not > 30 %")
         print("Fairy: have a chance to heal you and increase max hp")
+        print("")
     else:
         print("Пожалуйста, введите имя питомца, которого вы хотите выбрать")
         print("Курочка: имеет шанс дать вам несколько дополнительных $ и аптечку")
         print("Дракон: имеет шанс увеличить на немного твой урон и шанс уворота, но не более 30 %")
         print("Фея: имеет шанс восстановить вам немного хп и увеличить максимум")
+        print("")
 
 def shop(langu):
     print("")
